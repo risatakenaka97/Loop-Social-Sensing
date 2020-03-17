@@ -1,0 +1,144 @@
+
+.header {
+    display: block;
+    flex-flow: row;
+    flex-wrap: wrap;
+    padding: 10px 30px;
+    height: 65px;
+    list-style-type: none;
+    margin: 0;
+}
+
+.sub-header {
+    float: left;
+    padding: 5px 10px;
+    margin: 5px 10px;
+}
+
+.header .sub-header:nth-last-child(1), .header .sub-header:nth-last-child(1) a {
+    float: right;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header .sub-header:nth-last-child(2), .header .sub-header:nth-last-child(2) a {
+    float: right;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sub-header a {
+    margin-right: 20px;
+}
+
+.sub-header a:hover {
+    text-decoration: underline;
+}
+
+.sub-header > .active {
+    background-color: gray;
+}
+
+.sub-header button {
+    margin: 0 5px;
+}
+
+/*.sub-header-link {*/
+/*    padding: 5px 10px;*/
+/*    margin: 5px 10px;*/
+/*}*/
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.button {
+    background-color: white;
+    color: black;
+    border: 1px solid !important;
+    text-transform: initial !important;
+    height: 45px;
+}
+
+.header-button {
+    text-transform: initial !important;
+}
+
+.burger {
+    display: none;
+    /*position: absolute;*/
+    /*float: right;*/
+}
+.cross {
+    display: none;
+}
+
+@media only screen and (max-width: 813px) {
+    .burger {
+        display: flex;
+        margin: 20px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        color: #5a5a5a;
+    }
+    .header {
+        display: none;
+        flex-flow: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 100vh;
+        background-color: rgba(0,0,0,0.5);
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+    }
+    .sub-header {
+        float: none;
+    }
+
+    .header .sub-header:nth-last-child(1), .header .sub-header:nth-last-child(1) a {
+        float: none;
+        text-decoration: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .header .sub-header:nth-last-child(2), .header .sub-header:nth-last-child(2) a {
+        float: none;
+        text-decoration: none;
+        margin: 0;
+    }
+
+    .header .sub-header:nth-last-child(2) {
+        border-top: 1px solid black;
+        padding: 20px 0 20px;
+    }
+
+    .sub-header-link {
+        color: white
+    }
+
+    .cross {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 20px;
+        /*padding: 25px;*/
+        color: white;
+    }
+
+    .header-button {
+        color: white !important;
+        border: none !important;
+    }
+    .first-block {
+        margin-top: 75px;
+    }
+}

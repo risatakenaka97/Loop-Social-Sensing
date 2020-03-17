@@ -20,7 +20,7 @@
 .select-button {
     text-decoration: none !important;
     border: 1px solid black !important;
-    margin: 15px !important;
+    margin: 30px 0 0!important;
 }
 
 .auth-wrapper {
@@ -31,4 +31,65 @@
 
 .auth-wrapper a {
     font-size: 14px;
+}
+
+.form-elem-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 500px;
+    margin: 20px 0;
+}
+
+.sign-up-form-elem {
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+input[type=password]:not(.browser-default) {
+    margin: 0;
+}
+
+.pop-up-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pop-up-content {
+    position: relative;
+    width: 80%;
+    height: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    padding: 40px;
+}
+
+.pop-up-header {
+    font-size: 34px;
+}
+
+.pop-up-text {
+    text-align: center;
+    margin: 51px;
+    padding: 0 225px;
+}
+
+.cross {
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }

@@ -5,13 +5,9 @@ export const Route = ({exact, path, component}) => {
     return (
         <>
             {
-                exact ? (
-                    <ReactRoute exact path={path}>
-                        {component}
-                    </ReactRoute>) : (
-                    <ReactRoute path={path}>
-                        {component}
-                    </ReactRoute>)
+                exact ?
+                    (<ReactRoute exact path={path} render={() => component}/>) :
+                    (<ReactRoute path={path}  render={() => component}/>)
             }
         </>
     );
