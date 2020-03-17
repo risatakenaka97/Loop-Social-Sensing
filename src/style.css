@@ -1,0 +1,34 @@
+.wrapper {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.header-block {
+    font-size: 30px;
+    margin: 10px 0 20px;
+    padding: 10px;
+}
+
+.select-block {
+    font-style: italic;
+    margin: 5px 0 25px;
+}
+
+.select-button {
+    text-decoration: none !important;
+    border: 1px solid black !important;
+    margin: 15px !important;
+}
+
+.auth-wrapper {
+    position: absolute;
+    bottom: 25px;
+    font-size: 12px
+}
+
+.auth-wrapper a {
+    font-size: 14px;
+}
