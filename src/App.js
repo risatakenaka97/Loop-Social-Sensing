@@ -1,13 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router} from "react-router-dom";
-import {Routes} from "./components/router/Routes";
+import {BrowserRouter as Router} from "react-router-dom";
+import {Routes as SignIn} from "./app/router/Routes";
+import {Auth} from "./helpers/auth/Auth";
+import {App as Application} from './app/pages/app/App';
 
-function App() {
-  return (
-      <Router>
-        <Routes/>
-      </Router>
-  );
-}
+const App = () => (
+    <Router>
+        {Auth.isAuthorized() ? <Application/> : <SignIn/>}
+    </Router>
+);
 
 export default App;

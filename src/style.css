@@ -78,6 +78,10 @@ input[type=password]:not(.browser-default) {
     padding: 40px;
 }
 
+.cross:hover {
+    cursor: pointer;
+}
+
 .pop-up-header {
     font-size: 34px;
 }
