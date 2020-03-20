@@ -15,7 +15,7 @@ export const Auth = {
     },
     isAuthorized: function() {
         // const token = this.getToken();
-        return false;
+        return true;
         // if (token && !this.isExpired(token)) {
         //     this.refreshToken();
         // }
