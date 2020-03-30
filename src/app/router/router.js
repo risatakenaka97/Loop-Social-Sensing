@@ -12,6 +12,8 @@ import {Policy} from "../pages/app/policy/Policy";
 import {General} from "../pages/app/general/General";
 import {Upload} from "../pages/app/upload/Upload";
 import {SignUpDepartmentCreate} from "../pages/signUp/SignUpDepartmentCreate";
+import {Home} from "../pages/app/home/Home";
+import {Calendar} from "../pages/app/calendar/Calendar";
 
 export const router = [
     {
@@ -100,8 +102,20 @@ export const router = [
     },
     {
         available: false,
+        exact: false,
+        path: '/feedback-forum',
+        component: Feedback
+    },
+    {
+        available: false,
+        exact: false,
+        path: '/calendar',
+        component: Calendar
+    },
+    {
+        available: false,
         exact: true,
         path: '/',
-        component: Feedback
+        component: Home
     }
 ];

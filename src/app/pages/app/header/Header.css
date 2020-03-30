@@ -1,48 +1,76 @@
 .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    margin: 10px 5px;
-    border-bottom: 2px solid black;
+    height: 90px;
+    background-color: #2E2E2E;
 }
 
 .sub-header {
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 50vw;
+    flex-wrap: wrap;
+    flex-flow: row;
+    padding: 5px 20px;
 }
 
 .sub-header-link {
-    min-width: 50%;
-    text-align: center;
-    background-color: #cecece;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px 40px 0 0;
-    color: black;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-    border-top: 2px solid black;
-    padding: 10px;
+    text-transform: capitalize;
+    margin: 5px 20px;
+    color: white;
+    position: relative;
 }
 
-.header-button {
-    background-color: rgb(255, 255, 255);
-    color: rgb(3, 155, 229);
-    margin-right: 10px;
-    border: none;
-    text-decoration: underline;
+.close-profile-icon:after{
+    /* chevron-down */
+
+    position: absolute;
+    width: 24px;
+    height: 24px;
+
+
+
+    /* Vector */
+
+    left: 25%;
+    right: 25%;
+    top: 37.5%;
+    bottom: 37.5%;
+
+    border: 2px solid #FFFFFF;
+
 }
 
-.header-button:hover {
+.open-profile-icon:hover, .close-profile-icon:hover {
     cursor: pointer;
 }
+.open-profile-icon:after {
+    content: "\f077";
+    color: white;
+    font-size: 18px;
+    padding-bottom: 20px;
+    background-color: #2E2E2E;
+    margin-left: 10px;
+    position: absolute;
+    top: 10px;
+}
 
-.line {
-    margin: 10px 5px;
-    height: 5px;
-    border-bottom: 2px solid;
+.profile-settings-wrapper {
+    position: absolute;
+    color: white;
+    background-color: #2E2E2E;
+    display: flex;
+    flex-flow: column;
+    border-radius: 5px;
+}
+
+.profile-settings-item {
+    padding: 5px 5px;
+    font-size: 15px;
+    /*margin: 5px;*/
+    width: 180px;
+}
+.profile-settings-item:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
 }
