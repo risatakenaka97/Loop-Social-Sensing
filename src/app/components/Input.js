@@ -15,7 +15,7 @@ export const Input = ({
                       }) => {
     return (
         <div className={classes.wrapper} style={styles.wrapper}>
-            <InputLabel htmlFor={id} style={{fontSize: 24, marginRight: 25}}>{label}</InputLabel>
+            <InputLabel htmlFor={id} style={styles.label}>{label}</InputLabel>
             <MaterialInput
                 id={id}
                 name={name}

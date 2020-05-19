@@ -5,7 +5,7 @@
 .abstract-image {
     width: 37vw;
     background-color: #C4C4C4;
-    /*height: calc(100vh - 90px);*/
+    height: calc(100vh - 90px);
     text-align: center;
     position: relative;
 }
@@ -27,7 +27,7 @@
     display: flex;
     align-items: center;
     flex-flow: column;
-    /*height: calc(100vh - 90px);*/
+    height: calc(100vh - 90px);
     justify-content: center;
 }
 
@@ -55,14 +55,23 @@
     overflow: hidden;
     width: 135px;
     text-align:center;
-    background-color: white;
-    border: 2px solid white;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: white;
     border-radius: 15px;
+}
+
+.inactive-type-item {
+    border: 2px solid white;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
+
+.active-type-item {
+    border: 2px solid #00C894;
+    box-shadow: none;
+}
+
 .types-item .type-description-wrapper {
     background-color: white;
     position: absolute;
@@ -146,7 +155,11 @@ textarea::placeholder {
 }
 
 .types-wrapper label {
-    margin: 15px 100px 5px 10px;
+    /*margin: 15px 100px 5px 10px;*/
+}
+
+.types-wrapper label:hover {
+    cursor: pointer;
 }
 
 .types-wrapper input[type=radio] + label:before{
@@ -160,8 +173,44 @@ textarea::placeholder {
     border-radius:50%;
 }
 
-.types-wrapper input[type=radio]:checked + label:before {
+.types-wrapper input[type=radio] + label:before{
+    height:16px;
+    width:16px;
+    margin-right: 10px;
+    content: "";
+    display:inline-flex;
+    vertical-align: middle;
+}
+
+.anonymous input[type=radio] + label:before{
+    border:1px solid #2E2E2E;
+    border-radius:50%;
+}
+
+.feeling input[type=radio] + label:before{
+    border:none;
+}
+
+.feeling {
+    position: relative;
+}
+
+.feeling-line {
+    position: absolute;
+    width: 100%;
+    background-color: #00C894;
+    border-radius: 20px;
+    bottom: 4px;
+    height: 7px;
+}
+
+.anonymous input[type=radio]:checked + label:before {
     background:#2E2E2E;
+    border: #2E2E2E;
+}
+
+.feeling input[type=radio]:checked + label:before {
+    background:#00C894;
 }
 
 .button {

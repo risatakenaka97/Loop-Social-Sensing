@@ -1,9 +1,9 @@
 .header {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     height: 90px;
-    background-color: #2E2E2E;
+    background-color: #343350;
 }
 
 .sub-header {
@@ -57,20 +57,24 @@
 .profile-settings-wrapper {
     position: absolute;
     color: white;
-    background-color: #2E2E2E;
+    background-color: #343350;
     display: flex;
     flex-flow: column;
-    border-radius: 5px;
+    border-radius: 0 0 7px 7px;
+    right: -35px;
+    top: 65px;
 }
 
 .profile-settings-item {
     padding: 5px 5px;
     font-size: 15px;
     /*margin: 5px;*/
+    border-bottom: 1px solid #343350;
     width: 180px;
 }
 .profile-settings-item:hover {
-    background-color: white;
-    color: black;
+    /*background-color: white;*/
+    border-bottom: 1px solid white;
+    /*color: black;*/
     cursor: pointer;
 }

@@ -9,8 +9,9 @@ export const Select = ({
     id,
     name,
     label,
-    elements = [],
-    onChange = () => console.log('select')
+    value,
+    onChange,
+    elements,
                       }) => {
     return (
         <div className={classes.wrapper} style={styles.wrapper}>
@@ -19,11 +20,13 @@ export const Select = ({
                 labelId={id}
                 id={id}
                 name={name}
-                defaultValue={(elements[0] && elements[0].name) || ''}
+                defaultValue={"Choose your option"}
+                value={value.name}
                 style={styles.select}
                 onChange={onChange}
             >
-                {elements.map(element => <MenuItem value={element.id}>{element.name}</MenuItem>)}
+                {/*<option value="" disabled>Choose your option</option>*/}
+                {elements.map(element => <MenuItem key={element.id} value={element.id}>{element.name}</MenuItem>)}
             </MaterialSelect>
         </div>
     );

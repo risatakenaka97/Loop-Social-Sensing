@@ -1,19 +1,55 @@
-import React from "react";
+import React, {useEffect} from "react";
 import './Feedback.css';
+import {Sad} from "../../../../public/icon/sad";
+import {Good} from "../../../../public/icon/good";
+import {Happy} from "../../../../public/icon/happy";
+import {useInputs} from "../../../../helpers/hooks/useInputs";
 
 export const Feedback = () => {
+    const {
+        handleSubmit,
+        handleInput,
+        inputs
+    } = useInputs();
+    useEffect(() => {
 
+
+    }, []);
+
+    async function leaveFeedback() {
+
+    }
+    if (inputs.feeling == null) {
+        handleInput({target: {name: 'feeling', value: 'negative'}})
+    }
+    const typeClasses = {
+        community_initiatives: inputs.type === 'community_initiatives' ? "types-item active-type-item" : "types-item inactive-type-item",
+        general: inputs.type === 'general' ? "types-item active-type-item" : "types-item inactive-type-item",
+        policy: inputs.type === 'policy' ? "types-item active-type-item" : "types-item inactive-type-item",
+    };
+
+    const feelingLineWidth = {
+        width: inputs.feeling === 'neutral' || inputs.feeling === 'positive' ?
+            inputs.feeling === 'positive' ? '95%' : '50%'
+            : "5%"
+    };
+
+    // onClick={() => {
+    //     handleInput({name: 'policy', value:'policy'})
+    // }}
+    console.log('inputs: ', inputs);
     return (
         <div className='feedback-wrapper'>
             <div className="abstract-image">
                 <div className={'temp-text'}>Abstract image with shapes can be used here</div>
             </div>
-            <form className='feedback-form-wrapper'>
+            <form className='feedback-form-wrapper' onSubmit={handleSubmit}>
                 <div>
                     <h3 className='feedback-form-header'>Leave Feedback For The Community</h3>
                     <div className="step">Step 1. Select your feedback type</div>
                     <div className="types-wrapper">
-                        <div className='types-item'>
+                        <div className={typeClasses.policy}
+                             onClick={() => handleInput({target: {name: 'type', value: 'policy'}})}>
                             <div className='type-header'>
                                 <div>
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -32,7 +68,7 @@ export const Feedback = () => {
                                             strokeLinejoin="round"/>
                                     </svg>
                                 </div>
-                                <div className='type-header-text'>An Incident</div>
+                                <div className='type-header-text'>The Policy</div>
                             </div>
                             <div className='type-description-wrapper'>
                                 <div className='type-description-text type-description-title'>
@@ -40,7 +76,8 @@ export const Feedback = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='types-item'>
+                        <div className={typeClasses.community_initiatives}
+                             onClick={() => handleInput({target: {name: 'type', value: 'community_initiatives'}})}>
                             <div className='type-header'>
                                 <div>
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -67,8 +104,9 @@ export const Feedback = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='types-item'>
-                            <div className='type-header'>
+                        <div className={typeClasses.general}
+                             onClick={() => handleInput({target: {name: 'type', value: 'general'}})}>
+                            <div className='type-header '>
                                 <div>
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
@@ -87,16 +125,65 @@ export const Feedback = () => {
                         </div>
                     </div>
                     <div className="step">Step 2. Select your feedback below</div>
-                    <div className="types-wrapper">
+                    <div className="types-wrapper feeling">
+                        <input
+                            type="radio"
+                            id='sad'
+                            name='feeling'
+                            value={"negative"}
+                            defaultChecked={inputs.feeling === 'negative'}
+                            onClick={handleInput}
+                        />
+                        <label htmlFor="sad" style={{
+                            display: 'flex',
+                            flexFlow: 'column-reverse',
+                            alignItems: 'flex-end'
+                        }}>
+                            <Sad/>
+                        </label>
+                        <input
+                            type="radio"
+                            id='good'
+                            name='feeling'
+                            value={"neutral"}
+                            defaultChecked={inputs.feeling === 'neutral'}
+                            onClick={handleInput}
+                        />
+                        <label htmlFor="good" style={{
+                            display: 'flex',
+                            flexFlow: 'column-reverse',
+                            alignItems: 'flex-end'
+                        }}>
+                            <Good/>
+                        </label>
+                        <input
+                            type="radio"
+                            id='happy'
+                            name='feeling'
+                            defaultChecked={inputs.feeling === 'positive'}
+                            value={"positive"}
+                            onClick={handleInput}
+                        />
+                        <label htmlFor="happy" style={{
+                            display: 'flex',
+                            flexFlow: 'column-reverse',
+                            alignItems: 'flex-end'
+                        }}>
+                            <Happy/>
+                        </label>
+                        <div className="feeling-line" style={feelingLineWidth}>
+                        </div>
                     </div>
                     <div className="step">Step 3. Leave your comment</div>
                     <div className="types-wrapper">
-                        <textarea name="comment" id="comment" cols="30" rows="30" placeholder='Type your comment here'>
+                        <textarea name="comment" id="comment" cols="30" rows="30" placeholder='Type your comment here' onChange={handleInput}>
                         </textarea>
                     </div>
-                    <div className="types-wrapper" style={{justifyContent: 'inherit'}}>
-                        <input type="radio" id='anonymous' name='publicity' value={0}/><label htmlFor="anonymous">Anonymous</label>
-                        <input type="radio" id='public' name='publicity' value={1}/><label htmlFor="public">Public</label>
+                    <div className="types-wrapper anonymous" style={{justifyContent: 'inherit'}}>
+                        <input type="radio" id='anonymous' name='publicity' value={false} onChange={handleInput}/>
+                        <label htmlFor="anonymous" style={{margin: '20px 90px 0 0'}}>Anonymous</label>
+                        <input type="radio" id='public' name='publicity' value={true} onChange={handleInput}/>
+                        <label htmlFor="public" style={{margin: '20px 90px 0 0'}}>Public</label>
                     </div>
                     <div className="types-wrapper">
                         <div className='button cancel-button'>Cancel</div>

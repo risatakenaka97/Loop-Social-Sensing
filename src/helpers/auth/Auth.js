@@ -11,15 +11,14 @@ export const Auth = {
     },
     isExpired: function(token) {
         const now = new Date();
-        return now.getTime() < token.created_at + token.expire - 60;
+        return now.getTime() < token.created_at + token.expire;
     },
     isAuthorized: function() {
-        // const token = this.getToken();
-        return true;
+        const token = this.getToken();
         // if (token && !this.isExpired(token)) {
         //     this.refreshToken();
         // }
-        // return !!token && !this.isExpired(token);
+        return !!token && !this.isExpired(token);
     },
     refreshToken: async function (cb = null) {
         // try {
